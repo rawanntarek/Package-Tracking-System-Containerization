@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   # MongoDB service
@@ -16,7 +16,7 @@ services:
       context: ./backend  # Ensure this points to the backend directory
     container_name: go_backend
     ports:
-      - "8001:8001"
+      - "3000:3000"
     depends_on:
       - mongodb
     environment:
