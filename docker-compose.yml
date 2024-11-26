@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Backend (Go) service
+  backend:
+    build:
+      context: ./backend  # Ensure this points to the backend directory
+    container_name: go_backend
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mongodb
+    environment:
+    - MONGO_URI=mongodb://mongodb:27017
+
+
+  # Frontend (React) service
+  frontend:
+    build:
+      context: ./  # Ensure this points to the frontend directory
+    container_name: react_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
