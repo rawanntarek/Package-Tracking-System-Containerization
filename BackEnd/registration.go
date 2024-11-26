@@ -746,7 +746,8 @@ func AssignOrder(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// MongoDB URI
-	uri := "MONGO_URI"
+	uri := "mongodb://localhost:27017/"
+
 	clientOptions := options.Client().ApplyURI(uri)
 
 	// Connect to MongoDB
