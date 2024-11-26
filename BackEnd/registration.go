@@ -47,6 +47,7 @@ func ErrorResponse(w http.ResponseWriter, message string, statusCode int) {
 }
 
 // CORS middleware to handle cross-origin requests
+//prevent unauthrized requests
 func enableCORS(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Origin", "*") // Allow all origins (be cautious in production)
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, name,courierName,status,email,id,orderID,courierID")
@@ -71,7 +72,9 @@ func UserRegisteration(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Unmarshal the JSON body into UserData struct
+	
+	//The body is unmarshaled into a UserData struct
+	//if fail returns bad request 
 	err = json.Unmarshal(body, &user)
 	if err != nil {
 		ErrorResponse(w, "Invalid input", http.StatusBadRequest)
@@ -743,7 +746,7 @@ func AssignOrder(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// MongoDB URI
-	uri := "mongodb+srv://roaaayman2112:1234@cluster0.66yq8.mongodb.net/Package_Tracking_System?retryWrites=true&w=majority"
+	uri := "MONGO_URI"
 	clientOptions := options.Client().ApplyURI(uri)
 
 	// Connect to MongoDB
