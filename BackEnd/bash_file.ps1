@@ -5,7 +5,6 @@ docker network create my-network
 docker run -d --name database --network my-network -p 27017:27017 mongo:6.0
 sleep 5 
 
-cd backend
 docker build -t backend-image .
 sleep 5
 docker run -d --name backend-container --network my-network -p 3000:3000 --env MONGO_URI="mongodb://database:27017/Package_Tracking_System/" backend-image
