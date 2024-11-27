@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -47,7 +48,7 @@ func ErrorResponse(w http.ResponseWriter, message string, statusCode int) {
 }
 
 // CORS middleware to handle cross-origin requests
-//prevent unauthrized requests
+// prevent unauthrized requests
 func enableCORS(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Origin", "*") // Allow all origins (be cautious in production)
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, name,courierName,status,email,id,orderID,courierID")
@@ -72,9 +73,8 @@ func UserRegisteration(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
 	//The body is unmarshaled into a UserData struct
-	//if fail returns bad request 
+	//if fail returns bad request
 	err = json.Unmarshal(body, &user)
 	if err != nil {
 		ErrorResponse(w, "Invalid input", http.StatusBadRequest)
@@ -746,7 +746,7 @@ func AssignOrder(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// MongoDB URI
-	uri := "mongodb://localhost:27017/"
+	uri := os.Getenv("MONGO_URI")
 
 	clientOptions := options.Client().ApplyURI(uri)
 
