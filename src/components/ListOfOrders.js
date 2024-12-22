@@ -13,8 +13,9 @@ const UserOrders = () => {
         alert("Email is required");
         return;
       }
+      const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getuserorders";
 
-      const response = await fetch("http://localhost:3000/getuserorders", {
+      const response = await fetch(endpoint, {
         method: "GET",
         headers: {
           "email": email,
