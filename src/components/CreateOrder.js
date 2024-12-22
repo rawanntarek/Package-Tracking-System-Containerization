@@ -13,10 +13,11 @@ const Order = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userEmail = localStorage.getItem('userEmail');
+        const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/createorder";
 
         if (pickupLocation && dropOffLocation && packageDetails && deliveryTime) {
             try {
-                const response = await fetch('http://localhost:3000/createorder', {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
