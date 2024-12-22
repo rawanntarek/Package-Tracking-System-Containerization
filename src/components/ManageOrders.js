@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 function ManageOrders() {
   const [orders, setOrders] = useState([]);
   const [statusInputs, setStatusInputs] = useState({}); // Stores custom statuses for each order
+   
 
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const response = await fetch('http://localhost:3000/getallorders', {
+        const response = await fetch("https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getallorders", {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -32,7 +33,7 @@ function ManageOrders() {
   const deleteOrder = async (orderId) => {
     try {
       console.log(`Deleting order with ID: ${orderId}`);
-      const response = await fetch('http://localhost:3000/deleteorder', {
+      const response = await fetch("https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/deleteorder", {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ function ManageOrders() {
     const newStatus = statusInputs[orderId] || ''; // Use the custom status input
     try {
       console.log(`Changing status of order with ID: ${orderId} to ${newStatus}`);
-      const response = await fetch('http://localhost:3000/ChangeStatus', {
+      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/ChangeStatus', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
