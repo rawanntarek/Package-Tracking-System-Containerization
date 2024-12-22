@@ -10,7 +10,7 @@ const OrderDetails = () => {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const response = await fetch("http://localhost:3000/getorder",{
+        const response = await fetch("https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getorder",{
             method: "GET",
             headers: {
               "id": id,
@@ -31,7 +31,7 @@ const OrderDetails = () => {
 
   const cancelOrder = async () => {
     try {
-      const response = await fetch("http://localhost:3000/cancelorder", {
+      const response = await fetch(https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/cancelorder", {
         method: "DELETE",
         headers: {
           "id": id,
