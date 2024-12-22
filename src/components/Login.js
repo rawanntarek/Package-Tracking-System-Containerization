@@ -9,10 +9,11 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+      const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/login";
 
         if (Email && Password) {
             try {
-                const response = await fetch('http://localhost:3000/login', {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
