@@ -13,7 +13,7 @@ const AssignOrders = () => {
   // Fetch orders from the backend API
   const fetchOrders = async () => {
     try {
-      const response = await fetch('http://localhost:3000/getallorders'); // Replace with your API URL
+      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getallorders'); // Replace with your API URL
       const data = await response.json();
       setOrders(data); // Assuming the API response returns a list of orders
     } catch (error) {
@@ -24,7 +24,7 @@ const AssignOrders = () => {
   // Fetch couriers (you can replace this with a real API call)
   const fetchCouriers = async () => {
     try {
-      const response = await fetch('http://localhost:3000/getAllCouriers'); // Replace with your API URL
+      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getAllCouriers'); // Replace with your API URL
       const data = await response.json();
       setCouriers(data); // Assuming the API response returns a list of couriers
     } catch (error) {
@@ -37,7 +37,7 @@ const AssignOrders = () => {
         console.log("cid", courierName);
         console.log("oid", orderId);
         // Here you can make an API call to assign the order to the courier
-        const response = await fetch('http://localhost:3000/assignorder', {
+        const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/assignorder', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
