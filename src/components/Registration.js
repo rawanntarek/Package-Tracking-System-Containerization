@@ -13,10 +13,10 @@ const Registration = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+            const registrationEndpoint = "https://backend2-00001-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/register";
         if (Name && Email && Phone && Password && Type_of_user) {
             try {
-                const response = await fetch('http://localhost:3000/register', {
+                const response = await fetch(registrationEndpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
