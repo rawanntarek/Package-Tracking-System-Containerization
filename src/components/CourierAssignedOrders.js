@@ -10,9 +10,10 @@ function CourierAssignedOrders() {
         alert('Courier ID is missing');
         return;
     }
+    const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getassignedorders";
     async function fetchAssignedOrders() {
       try {
-        const response = await fetch('http://localhost:3000/getassignedorders', {
+        const response = await fetch(endpoint, {
           method: 'GET',
           headers: {
             'courierID': courierID,  
