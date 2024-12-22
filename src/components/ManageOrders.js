@@ -56,7 +56,7 @@ function ManageOrders() {
     const newStatus = statusInputs[orderId] || ''; // Use the custom status input
     try {
       console.log(`Changing status of order with ID: ${orderId} to ${newStatus}`);
-      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/ChangeStatus', {
+      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/updateorderstatus', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
