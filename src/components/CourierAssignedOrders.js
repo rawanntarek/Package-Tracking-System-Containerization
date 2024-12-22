@@ -43,7 +43,7 @@ function CourierAssignedOrders() {
       console.log("oid",orderId);
       console.log("status",newStatus);
     try{
-      const response= await fetch("http://localhost:3000/updateorderstatus" ,
+      const response= await fetch("https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/updateorderstatus" ,
         {
           method:"PUT",
           headers:{
