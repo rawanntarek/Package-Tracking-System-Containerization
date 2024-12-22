@@ -31,7 +31,7 @@ const OrderDetails = () => {
 
   const cancelOrder = async () => {
     try {
-      const response = await fetch(https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/cancelorder", {
+      const response = await fetch("https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/cancelorder", {
         method: "DELETE",
         headers: {
           "id": id,
