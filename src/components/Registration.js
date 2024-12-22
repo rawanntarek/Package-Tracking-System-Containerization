@@ -13,7 +13,7 @@ const Registration = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-            const registrationEndpoint = "https://backend2-00001-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/register";
+            const registrationEndpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/register";
         if (Name && Email && Phone && Password && Type_of_user) {
             try {
                 const response = await fetch(registrationEndpoint, {
