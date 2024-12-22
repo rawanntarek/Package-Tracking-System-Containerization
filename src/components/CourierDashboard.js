@@ -37,7 +37,7 @@ const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.opens
 
 
     try {
-      const response = await fetch('http://localhost:3000/acceptorder', {
+      const response = await fetch('https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/acceptorder', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.opens
     const declineOrder = async (orderID) => {
       const courierID = localStorage.getItem('courierID');
       try {
-        const response = await fetch(`http://localhost:3000/declineorder`, {
+        const response = await fetch(`https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/declineorder`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
