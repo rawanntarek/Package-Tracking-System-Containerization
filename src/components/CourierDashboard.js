@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 function CourierDashboard() {
   const [orders, setOrders] = useState([]);
  
-
+const endpoint = "https://backend2-rawantarekk-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/getallorderscourier";
   // Fetch all orders from the backend
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const response = await fetch('http://localhost:3000/getallorderscourier', {
+        const response = await fetch(endpoint, {
           method: 'GET',
         });
 
